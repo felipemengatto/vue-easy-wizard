@@ -25,8 +25,9 @@ module.exports = {
 	mode: 'production',
 	output: {
 		path: pathDistProduction,
-		filename: `${APLICATION_NAME}.min.js`,
-		chunkFilename: '[name].js'
+		filename: `${APLICATION_NAME}.js`,
+		library: 'VueEasyWizard',
+		libraryTarget: 'umd'
 	},
 	optimization: {
 		minimizer: [
@@ -91,7 +92,7 @@ module.exports = {
 		}),
 		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
-			filename: `${APLICATION_NAME}.min.css`
+			filename: `${APLICATION_NAME}.css`
 		})
 	],
 	resolve: {
