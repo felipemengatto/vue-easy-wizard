@@ -1,52 +1,49 @@
-const path = require('path');
-const webpack = require('webpack');
+var path = require('path');
+var webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const APLICATION_NAME = 'VueEasyWizard';
+const pathFolderApplication = path.resolve(__dirname, './src');
+const pathNodeModules = path.resolve(__dirname, './node_modules');
+const pathDistProduction = path.resolve(__dirname, './dist');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const uglifyJsConfig = {
+	test: /\.js(\?.*)?$/i,
+	cache: true,
+	parallel: true,
+	uglifyOptions: {
+		output: {
+			ascii_only: true
+		}
+	}
+};
 
 module.exports = {
+	entry: `${pathFolderApplication}/index.js`,
 	mode: 'production',
-	entry: './src/index.js',
-
 	output: {
-		filename: 'VueEasyWizard.js',
-		path: path.resolve(__dirname, 'dist'),
-		library: 'VueEasyWizard',
-		libraryTarget: 'umd'
+		path: pathDistProduction,
+		filename: `${APLICATION_NAME}.min.js`,
+		chunkFilename: '[name].js'
 	},
-
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin(), new VueLoaderPlugin()],
-
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin(uglifyJsConfig),
+		],
+	},
 	module: {
 		rules: [
 			{
-				test: /.(js|jsx)$/,
-				include: [path.resolve(__dirname, 'src')],
-				loader: 'babel-loader',
-
-				options: {
-					plugins: ['syntax-dynamic-import'],
-
-					presets: [
-						[
-							'@babel/preset-env',
-							{
-								modules: false
-							}
-						]
-					]
-				}
-			},
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader',
-				options: {
-					loaders: {
-					}
-				}
-			},
-			{
 				test: /\.(scss|css)$/,
 				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							sourceMap: true
+						}
+					},
 					{
 						loader: 'css-loader',
 						options: {
@@ -61,10 +58,53 @@ module.exports = {
 					}
 				]
 			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				options: {
+					loaders: {
+					}
+				}
+			},
+			{
+				test: /\.m?js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: [
+							'@babel/plugin-transform-runtime'
+						]
+					}
+				}
+
+			}
 		]
 	},
-
-	devServer: {
-		open: true
-	}
+	plugins: [
+		new UglifyJsPlugin(uglifyJsConfig),
+		new OptimizeCssAssetsPlugin({
+			cssProcessorOptions: {
+				safe: true
+			}
+		}),
+		new VueLoaderPlugin(),
+		new MiniCssExtractPlugin({
+			filename: `${APLICATION_NAME}.min.css`
+		})
+	],
+	resolve: {
+		extensions: ['*', '.js', '.vue', '.json'],
+		modules: [
+			pathNodeModules
+		]
+	},
+	watchOptions: {
+		poll: true
+	},
+	performance: {
+		hints: false
+	},
+	devtool: 'source-map'
 };

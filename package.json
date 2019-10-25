@@ -1,6 +1,6 @@
 {
   "name": "vue-easy-wizard",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "An easy-to-use wizard for vue.js",
   "main": "dist/VueEasyWizard.js",
   "scripts": {
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -25,14 +26,17 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.1",
     "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.9.0",
-    "vue-template-compiler": "^2.6.10",
-    "sass-resources-loader": "^2.0.1"
+    "webpack-dev-server": "^3.9.0"
   },
   "repository": {
     "type": "git",
