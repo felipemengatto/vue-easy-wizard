@@ -1,8 +1,8 @@
 {
   "name": "vue-easy-wizard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An easy-to-use wizard for vue.js",
-  "main": "index.js",
+  "main": "dist/main.fa9be8be257e4586a076.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server"
