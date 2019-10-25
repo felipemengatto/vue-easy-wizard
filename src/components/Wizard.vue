@@ -115,5 +115,9 @@
                 margin: 2px;
             }
         }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
     }
 </style>
