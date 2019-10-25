@@ -1,5 +1,7 @@
 # 🚀 Welcome to vue-easy-wizard!
 
+#### Obs: Have bootstrap support :grin:
+
 ### Install Package
 ```
 npm i -S vue-easy-wizard
