@@ -12,7 +12,7 @@
     import { swiperSlide } from 'vue-awesome-swiper';
 
     export default {
-        name: 'WizardItem',
+        name: 'VueEasyWizardItem',
         components: {
             swiperSlide
         },

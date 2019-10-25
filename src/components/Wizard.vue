@@ -36,7 +36,7 @@
     import { BaseButton, Icon } from './';
 
     export default {
-        name: 'Wizard',
+        name: 'VueEasyWizard',
         components: {
             BaseButton,
             Icon,
