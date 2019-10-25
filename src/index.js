@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
     install(Vue) {
-        Vue.component('VueEasyWizard', Wizard);
-        Vue.component('VueEasyWizardItem', WizardItem);
+        Vue.component('Wizard', Wizard);
+        Vue.component('WizardItem', WizardItem);
     }
 };
