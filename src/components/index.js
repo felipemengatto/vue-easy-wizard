@@ -1,4 +1,4 @@
-export const BaseButton = () => import('./BaseButton.vue');
-export const Icon = () => import('./Icon.vue');
-export const Wizard = () => import('./Wizard.vue');
-export const WizardItem = () => import('./WizardItem.vue');
+export { default as BaseButton } from './BaseButton.vue';
+export { default as Icon } from './Icon.vue';
+export { default as Wizard } from './Wizard.vue';
+export { default as WizardItem } from './WizardItem.vue';
