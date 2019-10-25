@@ -4,12 +4,14 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	entry: './src/index.js',
 
 	output: {
-		filename: 'VueEasyWizardItem.js',
-		path: path.resolve(__dirname, 'dist')
+		filename: 'VueEasyWizard.js',
+		path: path.resolve(__dirname, 'dist'),
+		library: 'VueEasyWizard',
+		libraryTarget: 'umd'
 	},
 
 	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin(), new VueLoaderPlugin()],
