@@ -1,6 +1,6 @@
 {
   "name": "vue-easy-wizard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An easy-to-use wizard for vue.js",
   "main": "dist/main.fa9be8be257e4586a076.js",
   "scripts": {
