@@ -8,7 +8,7 @@ module.exports = {
 	entry: './src/index.js',
 
 	output: {
-		filename: '[name].[chunkhash].js',
+		filename: 'VueEasyWizardItem.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 
