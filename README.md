@@ -56,3 +56,21 @@ $emit('wizard:next');
 ```js
 $emit('wizard:prev');
 ```
+
+### WizardItem Options
+
+1. title (required)
+```html
+    <WizardItem title="Wizard">
+    </WizardItem>
+```
+2. subtitle
+```html
+    <WizardItem subtitle="step 1">
+    </WizardItem>
+```
+3. Enable/Disable Back Button (true/false)
+```html
+    <WizardItem :back-button="false">
+    </WizardItem>
+```
