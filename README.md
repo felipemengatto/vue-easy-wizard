@@ -10,7 +10,7 @@ npm i -S vue-easy-wizard
 ### Install Plugin Vue
 ```js
 import Wizard from 'vue-easy-wizard';
-import 'vue-easy-wizard/dist/Wizard.css';
+import 'vue-easy-wizard/dist/VueEasyWizard.css';
 
 Vue.use(Wizard);
 ```
